@@ -292,7 +292,7 @@ window.onload = function() {
       previousall=all
       pvall/=2
       if (all>pvall){pvall = all}
-      var sss = 190+(pvall/100)
+      var sss = 190+(pvall/50)
       
       
       ctx.save()
@@ -314,14 +314,15 @@ window.onload = function() {
       ctx.stroke()
       
         
-        if(sss-lastsss>3){
+        if(sss-lastsss>5){
 		  rings.push({size:sss/2,lifetime:0})
 	  }
 	  for(ri=0;ri<rings.length;ri++){
 		  rings[ri].lifetime+=0.1;
-		  var grad = ctx.createRadialGradient(WIDTH/(8/7),HEIGHT/2,0,WIDTH/(8/7),HEIGHT/2,rings[ri].size)
+		  var grad = ctx.createRadialGradient(WIDTH/(8/7),HEIGHT/2,rings[ri].size-30,WIDTH/2,HEIGHT/2,rings[ri].size*(2*rings[ri].lifetime+1))
 		  grad.addColorStop(0,"rgba(255,255,255,0)")
-		  grad.addColorStop(1,"rgba(255,255,255,"+(1-rings[ri].lifetime)/4+")")
+		  grad.addColorStop(0.5,"rgba(255,255,255,"+(1-rings[ri].lifetime)+")")
+		  grad.addColorStop(1,"rgba(255,255,255,0)")
 		  ctx.fillStyle = grad
 		  ctx.beginPath()
 		  ctx.arc(WIDTH/(8/7),HEIGHT/2,rings[ri].size*(4*rings[ri].lifetime+1),0,Math.PI*2)
