@@ -1,4 +1,4 @@
-var returnstr = function(){selname=this.files[selected].name
+var returnstr = function(f,s){selname=f[s].name
     selname = selname.substring(0,selname.length-4)
     
     selname = selname.replace(/_/g," ")
@@ -62,7 +62,7 @@ window.onload = function() {
     audio.src = URL.createObjectURL(files[0]);
     
     
-    document.title = returnstr()+" - AluVisualizer"
+    document.title = returnstr(files,selected)+" - AluVisualizer"
     audio.load();
     audio.play();
     audio.loop = false;
@@ -413,7 +413,7 @@ window.onload = function() {
       selected = Math.floor(Math.random()*(files.length))
     }
     audio.src = URL.createObjectURL(files[selected]);
-    document.title = returnstr()+" - AluVisualizer"
+    document.title = returnstr(f,s)+" - AluVisualizer"
     audio.currentTime = 0;
     audio.load();
     audio.play()
