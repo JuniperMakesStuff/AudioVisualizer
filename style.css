@@ -1,0 +1,97 @@
+#thefile {
+  position: absolute;
+  top: 18px;
+  width:112px;
+  height:39px;
+  left: 18px;
+  z-index: 1000;
+  overflow: hidden;
+  transition:ease 0.5s;
+  opacity:0;
+  transform:translate(var(--transx),var(--transy)) rotate(var(--transr)) scale(var(--transsc))
+}
+
+#canvas {
+  overflow: hidden;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  margin-left: 0px;
+  margin-top: 0px;
+  
+  width: 100%;
+  height: 100%;
+  
+  background-image: url(https://github.com/JuniperMakesStuff/RhythmGameOpenAlpha/blob/master/galaxybg.png?raw=true);
+  background-repeat:no-repeat;
+  background-size:calc(100% + calc(var(--spc) / 10));
+  //background:rgba(0,0,0,0);
+  background-position:center;
+  //transform:translate(var(--x),var(--y)) rotate(var(--rot))scale(calc(var(--scale) + 1));
+  //filter:blur(calc(var(--aaa) + 1px)) brightness(calc(var(--spc) + 200%)) invert(calc(calc(calc(calc(var(--spc) / 2) - 100%) * 8) + 410%)) contrast(calc(var(--spc) + 100%)) hue-rotate(var(--yeet)) saturate(calc(var(--spc) + 1%));
+  
+}
+//#canvas2 {
+  overflow: hidden;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  margin-left: 0px;
+  margin-top: 0px;
+  filter:hue-rotate(calc(0deg)) blur(5px) brightness(100%) contrast(100%) brightness(200%);
+  
+  width: 100%;
+  height: 100%;
+  
+  background-image: url(https://raw.githubusercontent.com/JuniperMakesStuff/RhythmGameOpenAlpha/master/oof.png);
+  background-repeat:no-repeat;
+  background-size:calc(100% + var(--spc));
+  background:rgba(0,0,0,0);
+  z-index:999;
+  background-position:center;
+  
+}
+
+audio {
+  overflow: hidden;
+  position: fixed;
+  left: 10px;
+  bottom: 10px;
+  width: calc(100% - 20px);
+}
+:root{
+  overflow: hidden;
+  --spc:0%;
+  --aaa:0px;
+  --x:0px;
+  --y:0px;
+  --rot:0deg;
+  --invert:100%;
+  --scale:0;
+  --transx:0px;
+  --transy:0px;
+  --transr:0deg;
+  --transsc:1;
+  --yeet:0deg;
+  background:black;
+}
+#thefile.buttondecal{
+  text-align:center;
+  color:#fff;
+  
+  width:100px;
+  height:27px;
+  border:5px solid #fff;
+  border-radius:5px;
+  box-shadow:0px 0px 0px 1px #000,0px 0px 0px 2px #fff,0px 0px 0px 1px inset #000,0px 0px 0px 2px inset #fff;
+  
+  z-index:999;
+  position:absolute;
+  top:18px;
+  left:18px;
+  opacity:1;
+  
+}
+#thefile:hover ~ .buttondecal{
+    box-shadow:0px 0px 0px 2px #000,0px 0px 0px 4px #fff,0px 0px 0px 2px inset #000,0px 0px 0px 4px inset #fff;
+}
