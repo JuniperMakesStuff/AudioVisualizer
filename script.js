@@ -1,3 +1,26 @@
+var returnstr = function(){selname=this.files[selected].name
+    selname = selname.substring(0,selname.length-4)
+    
+    selname = selname.replace(/_/g," ")
+    var hyphenloc = selname.lastIndexOf("-")
+    
+    if(hyphenloc==-1){
+      authname = "Unknown Author"
+    }else{
+      
+      authname = selname.substring(0,hyphenloc-1)
+      
+      selname = selname.substring(hyphenloc+1,selname.length)
+      
+    }
+    selname = selname.toUpperCase()
+                          
+return authname + " - " + selname;
+}
+
+
+
+
 document.title = "No file loaded"+" - AluVisualizer"
 var alogo = document.createElement("IMG")
 alogo.src = "https://github.com/JuniperMakesStuff/RhythmGameOpenAlpha/blob/master/untitled%20-%202019-05-28T161851.899.png?raw=true"
@@ -37,7 +60,9 @@ window.onload = function() {
     files = this.files;
     selected = 0;
     audio.src = URL.createObjectURL(files[0]);
-    document.title = files[0].name+" - AluVisualizer"
+    
+    
+    document.title = returnstr()+" - AluVisualizer"
     audio.load();
     audio.play();
     audio.loop = false;
@@ -388,7 +413,7 @@ window.onload = function() {
       selected = Math.floor(Math.random()*(files.length))
     }
     audio.src = URL.createObjectURL(files[selected]);
-    document.title = files[selected].name+" - AluVisualizer"
+    document.title = returnstr()+" - AluVisualizer"
     audio.currentTime = 0;
     audio.load();
     audio.play()
