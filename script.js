@@ -413,7 +413,7 @@ window.onload = function() {
       selected = Math.floor(Math.random()*(files.length))
     }
     audio.src = URL.createObjectURL(files[selected]);
-    document.title = returnstr(f,s)+" - AluVisualizer"
+    document.title = returnstr(files,selected)+" - AluVisualizer"
     audio.currentTime = 0;
     audio.load();
     audio.play()
