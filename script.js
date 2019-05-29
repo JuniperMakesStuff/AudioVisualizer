@@ -1,3 +1,5 @@
+rings = []
+lastsss = 0;
 var returnstr = function(f,s){selname=f[s].name
     selname = selname.substring(0,selname.length-4)
     
@@ -311,6 +313,22 @@ window.onload = function() {
       ctx.arc(WIDTH/(8/7),HEIGHT/2,sss/2,0,Math.PI*2)
       ctx.stroke()
       
+        
+        if(sss-lastsss>35){
+		  rings.push({size:sss/2,lifetime:0})
+	  }
+	  for(ri=0;ri<rings.length;ri++){
+		  rings[ri].lifetime+=0.1;
+		  var grad = ctx.createRadialGradient(WIDTH/2,HEIGHT/2,0,WIDTH/2,HEIGHT/2,rings[ri].size)
+		  grad.addColorStop(0,"rgba(255,255,255,0)")
+		  grad.addColorStop(1,"rgba(255,255,255,"+(1-rings[ri].lifetime)/4+")")
+		  ctx.fillStyle = grad
+		  ctx.beginPath()
+		  ctx.arc(WIDTH/2,HEIGHT/2,rings[ri].size*(2*rings[ri].lifetime+1),0,Math.PI*2)
+		  ctx.fill()
+	  }
+	  while(rings[0].lifetime>=1&&rings.length>0){rings.shift()}
+      lastsss = sss;
       
       
       //ctx.font = "100px arial"
