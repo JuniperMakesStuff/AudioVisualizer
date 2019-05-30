@@ -317,6 +317,7 @@ window.onload = function() {
         if(sss-lastsss>5){
 		  rings.push({size:sss/2,lifetime:0})
 	  }
+	    ctx.globalCompositeOperation = "color-dodge"
 	  for(ri=0;ri<rings.length;ri++){
 		  rings[ri].lifetime+=0.1;
 		  var grad = ctx.createRadialGradient(WIDTH/(8/7),HEIGHT/2,rings[ri].size-30,WIDTH/(8/7),HEIGHT/2,rings[ri].size*(2*rings[ri].lifetime+1))
@@ -326,8 +327,10 @@ window.onload = function() {
 		  ctx.fillStyle = grad
 		  ctx.beginPath()
 		  ctx.arc(WIDTH/(8/7),HEIGHT/2,rings[ri].size*(4*rings[ri].lifetime+1),0,Math.PI*2)
+		  
 		  ctx.fill()
 	  }
+	  ctx.globalCompositeOperation = "screen"
 	  while(rings[0].lifetime>=1&&rings.length>0){rings.shift()}
       lastsss = sss;
       
