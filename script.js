@@ -331,7 +331,9 @@ window.onload = function() {
 		  ctx.fill()
 	  }
 	  ctx.globalCompositeOperation = "screen"
-	  while(rings[0].lifetime>=1&&rings.length>0){rings.shift()}
+	    if(rings.length>0){
+	  while(rings[0].lifetime>=1){rings.shift()}
+	    }
       lastsss = sss;
       
       
