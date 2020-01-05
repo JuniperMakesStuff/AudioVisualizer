@@ -25,7 +25,7 @@ return authname + " - " + selname;
 
 document.title = "No file loaded"+" - AluVisualizer"
 var alogo = document.createElement("IMG")
-alogo.src = "https://github.com/JuniperMakesStuff/RhythmGameOpenAlpha/blob/master/untitled%20-%202019-05-28T161851.899.png?raw=true"
+alogo.src = "https://github.com/JuniperMakesStuff/AudioVisualizer/blob/master/backg111.png?raw=true"
 
 var camx=0
 var camy=0
